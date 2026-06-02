@@ -33,7 +33,7 @@ export const projects = [
   {
     id: 1,
     url: 'https://prohlada-tau.vercel.app/',
-    title: { uk: 'Прохолода', ru: 'Прохлада', en: 'Prohlada' },
+    title: { uk: 'Prohlada', ru: 'Prohlada', en: 'Prohlada' },
     description: {
       uk: 'Сучасний лендинг для компанії кліматичного обладнання. Каталог кондиціонерів, послуги монтажу та форма заявки.',
       ru: 'Современный лендинг для компании климатического оборудования. Каталог кондиционеров, услуги монтажа и форма заявки.',
@@ -49,7 +49,7 @@ export const projects = [
   {
     id: 2,
     url: 'https://shawerma-land.vercel.app/',
-    title: { uk: 'Шаурма Land', ru: 'Шаурма Land', en: 'Shawarma Land' },
+    title: { uk: 'Shawerma & Co', ru: 'Shawerma & Co', en: 'Shawerma & Co' },
     description: {
       uk: 'Соковитий лендинг для точки фастфуду. Акцент на меню, акції та швидке замовлення прямо з головної сторінки.',
       ru: 'Сочный лендинг для точки фастфуда. Акцент на меню, акции и быстрый заказ прямо с главной страницы.',
