@@ -1,7 +1,9 @@
 import { ArrowRight, Send, Zap, Tag, Award, MapPin } from 'lucide-react'
 import { personalInfo } from '../data/projects.js'
+import { useTranslation } from '../i18n/LanguageContext.jsx'
 
 export default function Hero() {
+  const { t, lang } = useTranslation()
   const scrollTo = (id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -36,9 +38,9 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <span className="text-sm text-slate-300">Открыт для новых проектов</span>
+          <span className="text-sm text-slate-300">{t('hero.available')}</span>
           <span className="inline-flex items-center gap-1 text-xs text-slate-400">
-            <MapPin size={12} /> {personalInfo.location}
+            <MapPin size={12} /> {personalInfo.locationLocalized[lang]}
           </span>
         </div>
 
@@ -46,22 +48,22 @@ export default function Hero() {
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.25s' }}
         >
-          <span className="block text-slate-100">Привет, я</span>
-          <span className="block text-gradient mt-1">{personalInfo.name}</span>
+          <span className="block text-slate-100">{t('hero.greeting')}</span>
+          <span className="block text-gradient mt-1">{personalInfo.nameLocalized[lang]}</span>
         </h1>
 
         <p
           className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-slate-300 max-w-3xl mx-auto opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
-          {personalInfo.specialization}
+          {t('hero.subtitle')}
         </p>
 
         <p
           className="mt-5 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.55s' }}
         >
-          {personalInfo.usp}
+          {personalInfo.uspLocalized[lang]}
         </p>
 
         <div
@@ -72,7 +74,7 @@ export default function Hero() {
             onClick={() => scrollTo('#portfolio')}
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-medium shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-[1.03] active:scale-95 transition-all w-full sm:w-auto justify-center"
           >
-            Смотреть работы
+            {t('hero.ctaPrimary')}
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
           <a
@@ -82,7 +84,7 @@ export default function Hero() {
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass text-slate-100 font-medium hover:bg-white/10 hover:scale-[1.03] active:scale-95 transition-all w-full sm:w-auto justify-center"
           >
             <Send size={18} className="text-sky-400" />
-            Связаться в Telegram
+            {t('hero.ctaSecondary')}
           </a>
         </div>
 
@@ -92,22 +94,22 @@ export default function Hero() {
         >
           <AdvantageCard
             icon={<Zap size={20} />}
-            title="Скорость"
-            text="Сдаю проекты в срок или раньше"
+            title={t('hero.advantages.speed.title')}
+            text={t('hero.advantages.speed.text')}
             color="text-amber-300"
             bg="from-amber-500/10 to-amber-500/0"
           />
           <AdvantageCard
             icon={<Tag size={20} />}
-            title="Цена"
-            text="Честная стоимость без переплат"
+            title={t('hero.advantages.price.title')}
+            text={t('hero.advantages.price.text')}
             color="text-emerald-300"
             bg="from-emerald-500/10 to-emerald-500/0"
           />
           <AdvantageCard
             icon={<Award size={20} />}
-            title="Качество"
-            text="Чистый код и продуманный дизайн"
+            title={t('hero.advantages.quality.title')}
+            text={t('hero.advantages.quality.text')}
             color="text-indigo-300"
             bg="from-indigo-500/10 to-indigo-500/0"
           />
@@ -119,7 +121,7 @@ export default function Hero() {
         >
           <button
             onClick={() => scrollTo('#portfolio')}
-            aria-label="Прокрутить вниз"
+            aria-label={t('hero.scrollDown')}
             className="w-10 h-16 rounded-full border border-white/10 flex items-start justify-center p-2 hover:border-white/30 transition-colors"
           >
             <span className="w-1.5 h-3 bg-slate-400 rounded-full animate-bounce" />

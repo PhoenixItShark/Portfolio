@@ -1,15 +1,19 @@
 import { Phone, Send, MapPin, Instagram, Facebook, Github, Linkedin } from 'lucide-react'
 import { personalInfo } from '../data/projects.js'
+import { useTranslation } from '../i18n/LanguageContext.jsx'
 
 const socials = [
-  { Icon: Instagram, label: 'Instagram', hover: 'hover:text-pink-400' },
-  { Icon: Facebook, label: 'Facebook', hover: 'hover:text-blue-400' },
-  { Icon: Github, label: 'GitHub', hover: 'hover:text-slate-100' },
-  { Icon: Linkedin, label: 'LinkedIn', hover: 'hover:text-sky-400' },
+  { key: 'Instagram', Icon: Instagram, hover: 'hover:text-pink-400' },
+  { key: 'Facebook',  Icon: Facebook,  hover: 'hover:text-blue-400' },
+  { key: 'GitHub',    Icon: Github,    hover: 'hover:text-slate-100' },
+  { key: 'LinkedIn',  Icon: Linkedin,  hover: 'hover:text-sky-400' },
 ]
 
 export default function Footer() {
+  const { t, lang } = useTranslation()
   const year = new Date().getFullYear()
+  const cityName = personalInfo.locationLocalized[lang]
+  const countryName = personalInfo.countryLocalized[lang]
 
   return (
     <footer
@@ -22,13 +26,14 @@ export default function Footer() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass text-xs uppercase tracking-widest text-slate-300 mb-5">
             <Send size={13} />
-            Контакты
+            {t('footer.badge')}
           </div>
           <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100">
-            Давайте <span className="text-gradient">сотрудничать</span>
+            {t('footer.titleStart')}{' '}
+            <span className="text-gradient">{t('footer.titleAccent')}</span>
           </h2>
           <p className="reveal mt-4 text-slate-400 text-base sm:text-lg">
-            Открыт для интересных проектов. Напишите — обсудим вашу задачу.
+            {t('footer.subtitle')}
           </p>
         </div>
 
@@ -41,7 +46,7 @@ export default function Footer() {
               <Phone size={20} />
             </span>
             <div className="min-w-0">
-              <div className="text-xs uppercase tracking-wider text-slate-500">Телефон</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500">{t('footer.phone')}</div>
               <div className="font-semibold text-slate-100 mt-0.5 truncate">
                 {personalInfo.phone}
               </div>
@@ -59,7 +64,7 @@ export default function Footer() {
               <Send size={20} />
             </span>
             <div className="min-w-0">
-              <div className="text-xs uppercase tracking-wider text-slate-500">Telegram</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500">{t('footer.telegram')}</div>
               <div className="font-semibold text-slate-100 mt-0.5 truncate">
                 {personalInfo.telegramHandle}
               </div>
@@ -74,25 +79,25 @@ export default function Footer() {
               <MapPin size={20} />
             </span>
             <div className="min-w-0">
-              <div className="text-xs uppercase tracking-wider text-slate-500">Город</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500">{t('footer.city')}</div>
               <div className="font-semibold text-slate-100 mt-0.5 truncate">
-                {personalInfo.location}, Украина
+                {cityName}, {countryName}
               </div>
             </div>
           </div>
         </div>
 
         <div className="reveal mt-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-slate-400">
-            Готов реализовать всё. Низкая цена · Быстрые сроки · Высокое качество
+          <p className="text-sm text-slate-400 text-center sm:text-left">
+            {t('footer.tagline')}
           </p>
 
           <div className="flex items-center gap-2">
-            {socials.map(({ Icon, label, hover }) => (
+            {socials.map(({ key, Icon, hover }) => (
               <a
-                key={label}
+                key={key}
                 href="#"
-                aria-label={label}
+                aria-label={t('footer.socialAria', { name: key })}
                 onClick={(e) => e.preventDefault()}
                 className={`grid place-items-center w-10 h-10 rounded-full glass text-slate-500 ${hover} hover:bg-white/10 hover:-translate-y-0.5 transition-all`}
               >
@@ -103,9 +108,9 @@ export default function Footer() {
         </div>
 
         <div className="reveal mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© {year} {personalInfo.name}. Все права защищены.</p>
+          <p>© {year} {personalInfo.nameLocalized[lang]}. {t('footer.rights')}</p>
           <p>
-            Сделано с <span className="text-rose-400">♥</span> в {personalInfo.location}
+            {t('footer.madeWith')} <span className="text-rose-400">♥</span> {lang === 'en' ? `in ${cityName}` : `у ${cityName}`}
           </p>
         </div>
       </div>

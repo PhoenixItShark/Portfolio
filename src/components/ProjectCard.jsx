@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Maximize2 } from 'lucide-react'
+import { useTranslation } from '../i18n/LanguageContext.jsx'
 
 export default function ProjectCard({ project, index }) {
-  const { title, url, description, tags, accent } = project
+  const { t, lang } = useTranslation()
+  const { url, accent } = project
+  const title = project.title[lang]
+  const description = project.description[lang]
+  const tags = project.tags[lang]
+
   const wrapperRef = useRef(null)
   const [scale, setScale] = useState(0.5)
   const [loaded, setLoaded] = useState(false)
@@ -25,7 +31,7 @@ export default function ProjectCard({ project, index }) {
       className="group relative flex flex-col rounded-2xl overflow-hidden glass hover:bg-white/[0.07] hover:-translate-y-1.5 transition-all duration-500 reveal"
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="relative h-1 bg-gradient-to-r opacity-80 group-hover:opacity-100 transition-opacity" style={{ backgroundImage: `linear-gradient(90deg, var(--tw-gradient-stops))` }}>
+      <div className="relative h-1">
         <div className={`absolute inset-0 bg-gradient-to-r ${accent}`} />
       </div>
 
@@ -57,7 +63,7 @@ export default function ProjectCard({ project, index }) {
             <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0f]">
               <div className="flex flex-col items-center gap-3">
                 <div className="w-8 h-8 border-2 border-white/10 border-t-indigo-400 rounded-full animate-spin" />
-                <span className="text-xs text-slate-500">Загрузка превью…</span>
+                <span className="text-xs text-slate-500">{t('portfolio.loadingPreview')}</span>
               </div>
             </div>
           )}
@@ -68,12 +74,12 @@ export default function ProjectCard({ project, index }) {
             href={url}
             target="_blank"
             rel="noreferrer"
-            aria-label={`Открыть ${title} в новой вкладке`}
+            aria-label={t('project.openAria', { title })}
             className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-slate-900 text-sm font-medium shadow-xl scale-95 group-hover:scale-100 transition-transform">
               <Maximize2 size={16} />
-              Открыть превью
+              {t('portfolio.openPreview')}
             </span>
           </a>
         </div>
@@ -107,7 +113,7 @@ export default function ProjectCard({ project, index }) {
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-200 hover:text-white group/link"
           >
-            Посмотреть вживую
+            {t('portfolio.viewLive')}
             <ExternalLink
               size={14}
               className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
