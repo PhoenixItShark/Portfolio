@@ -99,18 +99,22 @@ export default function Header() {
           </a>
         </div>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
-          className="md:hidden p-2 rounded-lg glass text-slate-100"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
+            aria-expanded={open}
+            className="p-2 rounded-lg glass text-slate-100"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       <div
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ${
-          open ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
+          open ? 'max-h-72 opacity-100 mt-3' : 'max-h-0 opacity-0'
         }`}
       >
         <nav className="max-w-7xl mx-5 px-4 py-4 rounded-2xl glass flex flex-col gap-1">
@@ -128,17 +132,14 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <div className="flex items-center justify-between gap-2 pt-2">
-            <a
-              href="https://t.me/PhoenixItShark"
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 px-3 py-2.5 rounded-lg text-sm font-medium text-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
-            >
-              {t('nav.contactTelegram')}
-            </a>
-            <LanguageSwitcher />
-          </div>
+          <a
+            href="https://t.me/PhoenixItShark"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-1 px-3 py-2.5 rounded-lg text-sm font-medium text-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+          >
+            {t('nav.contactTelegram')}
+          </a>
         </nav>
       </div>
     </header>

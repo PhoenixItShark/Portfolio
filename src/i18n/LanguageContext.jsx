@@ -21,8 +21,6 @@ function detectInitialLang() {
   if (stored && translations[stored]) return stored
   const browser = (window.navigator.language || '').toLowerCase()
   if (browser.startsWith('uk')) return 'uk'
-  if (browser.startsWith('ru')) return 'ru'
-  if (browser.startsWith('en')) return 'en'
   return DEFAULT_LANG
 }
 
