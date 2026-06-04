@@ -15,7 +15,7 @@ const en = {
   hero: {
     available: 'Available for new projects',
     greeting: 'Hi, I am',
-    subtitle: 'Professional landing page development',
+    subtitle: 'Professional landing page and site development',
     ctaPrimary: 'View my work',
     ctaSecondary: 'Message on Telegram',
     scrollDown: 'Scroll down',

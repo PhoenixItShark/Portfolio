@@ -15,7 +15,7 @@ const uk = {
   hero: {
     available: 'Відкритий до нових проєктів',
     greeting: 'Привіт, я',
-    subtitle: 'Професійна розробка лендингів',
+    subtitle: 'Професійна розробка лендингів та сайтів',
     ctaPrimary: 'Дивитись роботи',
     ctaSecondary: "Зв'язатись у Telegram",
     scrollDown: 'Прокрутити вниз',

@@ -15,7 +15,7 @@ const ru = {
   hero: {
     available: 'Открыт для новых проектов',
     greeting: 'Привет, я',
-    subtitle: 'Профессиональная разработка лендингов',
+    subtitle: 'Профессиональная разработка лендингов и сайтов',
     ctaPrimary: 'Смотреть работы',
     ctaSecondary: 'Связаться в Telegram',
     scrollDown: 'Прокрутить вниз',
