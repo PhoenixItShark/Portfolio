@@ -110,4 +110,20 @@ export const projects = [
     },
     accent: 'from-emerald-400 to-teal-500',
   },
+  {
+    id: 6,
+    url: 'https://game-landing-sage.vercel.app/',
+    title: { uk: 'Project Sage', ru: 'Project Sage', en: 'Project Sage' },
+    description: {
+      uk: 'Односторінковий лендинг-презентація атмосферної sci-fi інди-гри на React + Vite + Tailwind. Мінімалістичний темний дизайн, ключові продаючі блоки, галерея, системні вимоги та кастомна мультимовність.',
+      ru: 'Одностраничный лендинг-презентация атмосферной sci-fi инди-игры на React + Vite + Tailwind. Минималистичный тёмный дизайн, ключевые продающие блоки, галерея, системные требования и кастомная мультиязычность.',
+      en: 'A single-page landing presenting an atmospheric sci-fi indie game. Built with React + Vite + Tailwind. Clean dark minimalism, core selling blocks, gallery, system requirements and custom multilingual support.',
+    },
+    tags: {
+      uk: ['Гра', 'Sci-Fi', 'React'],
+      ru: ['Игра', 'Sci-Fi', 'React'],
+      en: ['Game', 'Sci-Fi', 'React'],
+    },
+    accent: 'from-cyan-400 to-indigo-500',
+  },
 ]
