@@ -1,6 +1,6 @@
 const en = {
   meta: {
-    title: 'Landing Page Development',
+    title: 'Landing Page and site Development',
     description: 'Ignat Lukyanchuk — professional landing page development. Fast, high-quality, affordable.',
   },
   nav: {
