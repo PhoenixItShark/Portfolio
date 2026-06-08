@@ -48,8 +48,16 @@ export default function Hero() {
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.25s' }}
         >
-          <span className="block text-slate-100">{t('hero.greeting')}</span>
-          <span className="block text-gradient mt-1">{personalInfo.nameLocalized[lang]}</span>
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            {t('hero.greeting').split(' | ').map((line, i) => (
+              <div key={i} className="flex flex-col items-center">
+                {i > 0 && (
+                  <span className="text-white/20 text-xs sm:text-sm mb-2 sm:mb-3">✦</span>
+                )}
+                <span className="text-gradient">{line}</span>
+              </div>
+            ))}
+          </div>
         </h1>
 
         <p

@@ -20,6 +20,11 @@ export const personalInfo = {
   phoneRaw: '+380677129717',
   specialization: 'Professional landing page development',
   telegram: 'https://t.me/PhoenixItShark',
+  firstNameLocalized: {
+    uk: 'Ігнат',
+    ru: 'Игнат',
+    en: 'Ignat',
+  },
   telegramHandle: '@PhoenixItShark',
   usp: 'Ready to build anything. My main strengths — low price, extremely fast delivery and high quality.',
   uspLocalized: {

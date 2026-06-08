@@ -3,10 +3,10 @@ import { personalInfo } from '../data/projects.js'
 import { useTranslation } from '../i18n/LanguageContext.jsx'
 
 const socials = [
-  { key: 'Instagram', Icon: Instagram, hover: 'hover:text-pink-400' },
-  { key: 'Facebook',  Icon: Facebook,  hover: 'hover:text-blue-400' },
-  { key: 'GitHub',    Icon: Github,    hover: 'hover:text-slate-100' },
-  { key: 'LinkedIn',  Icon: Linkedin,  hover: 'hover:text-sky-400' },
+  { key: 'Instagram', Icon: Instagram, hover: 'hover:text-pink-400', href: 'https://www.instagram.com/phoenix.dev.odessa/' },
+  { key: 'Facebook',  Icon: Facebook,  hover: 'hover:text-blue-400', href: '#' },
+  { key: 'GitHub',    Icon: Github,    hover: 'hover:text-slate-100', href: '#' },
+  { key: 'LinkedIn',  Icon: Linkedin,  hover: 'hover:text-sky-400', href: '#' },
 ]
 
 export default function Footer() {
@@ -93,12 +93,14 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-2">
-            {socials.map(({ key, Icon, hover }) => (
+            {socials.map(({ key, Icon, hover, href }) => (
               <a
                 key={key}
-                href="#"
+                href={href}
+                target={href !== '#' ? '_blank' : undefined}
+                rel={href !== '#' ? 'noreferrer' : undefined}
                 aria-label={t('footer.socialAria', { name: key })}
-                onClick={(e) => e.preventDefault()}
+                onClick={href === '#' ? (e) => e.preventDefault() : undefined}
                 className={`grid place-items-center w-10 h-10 rounded-full glass text-slate-500 ${hover} hover:bg-white/10 hover:-translate-y-0.5 transition-all`}
               >
                 <Icon size={17} />
@@ -108,7 +110,7 @@ export default function Footer() {
         </div>
 
         <div className="reveal mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© {year} {personalInfo.nameLocalized[lang]}. {t('footer.rights')}</p>
+          <p>© {year} {personalInfo.firstNameLocalized[lang]}. {t('footer.rights')}</p>
           <p>
             {t('footer.madeWith')} <span className="text-rose-400">♥</span> {lang === 'en' ? `in ${cityName}` : `у ${cityName}`}
           </p>

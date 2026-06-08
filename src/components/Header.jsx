@@ -64,7 +64,7 @@ export default function Header() {
             І
           </span>
           <span className="hidden sm:block font-semibold text-slate-100 tracking-tight">
-            {personalInfo.nameLocalized[lang] || personalInfo.name}
+            {personalInfo.firstNameLocalized[lang]}
           </span>
         </a>
 
